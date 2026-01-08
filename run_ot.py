@@ -27,7 +27,7 @@ import gc
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--dir", default="./logs")
-    parser.add_argument("--policy", default="OTDF")
+    parser.add_argument("--policy", default="UOTDF")
     parser.add_argument("--env", default="halfcheetah")
     parser.add_argument("--seed", default=0, type=int)            
     parser.add_argument("--save-model", action="store_true")        # Save model and optimizer parameters
@@ -35,7 +35,6 @@ if __name__ == "__main__":
     parser.add_argument("--tartype", default='medium', type=str)
     parser.add_argument("--steps", default=1e6, type=int)
     parser.add_argument("--weight", action="store_true")
-    parser.add_argument("--proportion", default=0.8, type=float)
     parser.add_argument("--noreg", action="store_true")
     parser.add_argument("--reg_weight", default=0.5, type=float)
     

@@ -1,19 +1,9 @@
 #!/bin/bash
 
-# ================= 配置区域 =================
-
-# 1. 定义环境参数
-# ROBOTS=( "halfcheetah" "hopper" "walker2d")
-# SHIFTS=("gravity" "morph" )
-# ROBOTS= ("ant")
-
-# # 2. 定义数据集类型
-# SRC_TYPES=("medium" "medium-replay" "medium-expert")
 SRC_TYPES=("medium" "medium-replay" "medium-expert")
 TAR_TYPES=("medium" "medium-expert" "expert")
-ENV_NAMES=("ant" "ant-morph" "ant-gravity" )
+ENV_NAMES=("ant" "ant-morph" "ant-gravity" "halfcheetah" "halfcheetah-morph" "halfcheetah-gravity" "hopper" "hopper-morph" "hopper-gravity" "walker2d" "walker2d-morph" "walker2d-gravity")
 
-# 3. 定义固定的超参数 (根据你的要求)
 EPSILON=0.01
 LAMBDA_SRC=0.05
 LAMBDA_TAR=0.5
@@ -32,8 +22,6 @@ echo "Starting Batch Experiments..."
 echo "Total Configurations: $(( ${#ROBOTS[@]} *  ${#SRC_TYPES[@]} * ${#TAR_TYPES[@]} ))"
 
 for ENV_NAME in "${ENV_NAMES[@]}"; do
-# 拼接环境名，例如: halfcheetah-gravity
-
     for src in "${SRC_TYPES[@]}"; do
         for tar in "${TAR_TYPES[@]}"; do
             
@@ -72,5 +60,4 @@ for ENV_NAME in "${ENV_NAMES[@]}"; do
     done
 done
 
-python copy_weights.py
 echo "All experiments finished."
